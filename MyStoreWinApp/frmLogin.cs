@@ -30,20 +30,39 @@ namespace MyStoreWinApp
                 MemberObject member = memberRepository.Login(email, password);
                 if (member != null)
                 {
-                    if (("admin").Equals(member.Email)) {
-                        Hide();
+                    this.Hide();
+                    if (("admin").Equals(member.Email))
+                    {
                         frmMemberManagements frmManagements = new frmMemberManagements();
-                        if (frmManagements.ShowDialog() == DialogResult.OK)
+                        DialogResult result = frmManagements.ShowDialog();
+                        if (result == DialogResult.Cancel)
                         {
-                            Close();
+                            this.Close();
+                        }
+                        if (result == DialogResult.TryAgain)
+                        {
+                            this.Show();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Login successfully: User.");
+                        frmMemberDetails frmMemberDetails = new frmMemberDetails
+                        {
+                            Text = "Update Profile",
+                            Action = "UPDATE",
+                            Member = member,
+                            MemberRepository = memberRepository,
+                        };
+                        if (frmMemberDetails.ShowDialog() == DialogResult.OK)
+                        {
+                            this.Show();
+                        }
                     }
+                } else
+                {
+                    MessageBox.Show("Wrong your's email or password. Try again!");
                 }
-              
+
 
             }
             catch (Exception ex)
@@ -55,6 +74,11 @@ namespace MyStoreWinApp
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -29,17 +29,19 @@
         private void InitializeComponent()
         {
             this.btnCancel = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtEmailDetail = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPasswordDetail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtMemberNameDetail = new System.Windows.Forms.TextBox();
             this.txtMemberName = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtCityDetail = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtCountryDetail = new System.Windows.Forms.TextBox();
             this.txtCountry = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.txtMemberIDDetail = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -50,14 +52,15 @@
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // textBox2
+            // txtEmailDetail
             // 
-            this.textBox2.Location = new System.Drawing.Point(314, 67);
-            this.textBox2.MaxLength = 50;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(229, 23);
-            this.textBox2.TabIndex = 4;
+            this.txtEmailDetail.Location = new System.Drawing.Point(314, 67);
+            this.txtEmailDetail.MaxLength = 50;
+            this.txtEmailDetail.Name = "txtEmailDetail";
+            this.txtEmailDetail.Size = new System.Drawing.Size(229, 23);
+            this.txtEmailDetail.TabIndex = 4;
             // 
             // txtEmail
             // 
@@ -68,13 +71,13 @@
             this.txtEmail.TabIndex = 3;
             this.txtEmail.Text = "Email";
             // 
-            // textBox3
+            // txtPasswordDetail
             // 
-            this.textBox3.Location = new System.Drawing.Point(314, 106);
-            this.textBox3.MaxLength = 50;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(229, 23);
-            this.textBox3.TabIndex = 6;
+            this.txtPasswordDetail.Location = new System.Drawing.Point(314, 106);
+            this.txtPasswordDetail.MaxLength = 50;
+            this.txtPasswordDetail.Name = "txtPasswordDetail";
+            this.txtPasswordDetail.Size = new System.Drawing.Size(229, 23);
+            this.txtPasswordDetail.TabIndex = 6;
             // 
             // txtPassword
             // 
@@ -85,14 +88,13 @@
             this.txtPassword.TabIndex = 5;
             this.txtPassword.Text = "Password";
             // 
-            // textBox4
+            // txtMemberNameDetail
             // 
-            this.textBox4.Location = new System.Drawing.Point(314, 145);
-            this.textBox4.MaxLength = 50;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(229, 23);
-            this.textBox4.TabIndex = 8;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txtMemberNameDetail.Location = new System.Drawing.Point(314, 145);
+            this.txtMemberNameDetail.MaxLength = 50;
+            this.txtMemberNameDetail.Name = "txtMemberNameDetail";
+            this.txtMemberNameDetail.Size = new System.Drawing.Size(229, 23);
+            this.txtMemberNameDetail.TabIndex = 8;
             // 
             // txtMemberName
             // 
@@ -102,15 +104,14 @@
             this.txtMemberName.Size = new System.Drawing.Size(87, 15);
             this.txtMemberName.TabIndex = 7;
             this.txtMemberName.Text = "Member Name";
-            this.txtMemberName.Click += new System.EventHandler(this.label4_Click);
             // 
-            // textBox5
+            // txtCityDetail
             // 
-            this.textBox5.Location = new System.Drawing.Point(314, 188);
-            this.textBox5.MaxLength = 50;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(229, 23);
-            this.textBox5.TabIndex = 10;
+            this.txtCityDetail.Location = new System.Drawing.Point(314, 188);
+            this.txtCityDetail.MaxLength = 50;
+            this.txtCityDetail.Name = "txtCityDetail";
+            this.txtCityDetail.Size = new System.Drawing.Size(229, 23);
+            this.txtCityDetail.TabIndex = 10;
             // 
             // txtCity
             // 
@@ -121,13 +122,13 @@
             this.txtCity.TabIndex = 9;
             this.txtCity.Text = "City";
             // 
-            // textBox6
+            // txtCountryDetail
             // 
-            this.textBox6.Location = new System.Drawing.Point(314, 230);
-            this.textBox6.MaxLength = 50;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(229, 23);
-            this.textBox6.TabIndex = 12;
+            this.txtCountryDetail.Location = new System.Drawing.Point(314, 230);
+            this.txtCountryDetail.MaxLength = 50;
+            this.txtCountryDetail.Name = "txtCountryDetail";
+            this.txtCountryDetail.Size = new System.Drawing.Size(229, 23);
+            this.txtCountryDetail.TabIndex = 12;
             // 
             // txtCountry
             // 
@@ -146,26 +147,47 @@
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // txtMemberIDDetail
+            // 
+            this.txtMemberIDDetail.Location = new System.Drawing.Point(314, 29);
+            this.txtMemberIDDetail.MaxLength = 50;
+            this.txtMemberIDDetail.Name = "txtMemberIDDetail";
+            this.txtMemberIDDetail.Size = new System.Drawing.Size(229, 23);
+            this.txtMemberIDDetail.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(234, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 15);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "MemberID";
             // 
             // frmMemberDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtMemberIDDetail);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtCountryDetail);
             this.Controls.Add(this.txtCountry);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtCityDetail);
             this.Controls.Add(this.txtCity);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtMemberNameDetail);
             this.Controls.Add(this.txtMemberName);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtPasswordDetail);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtEmailDetail);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.btnCancel);
             this.Name = "frmMemberDetails";
             this.Text = "frmMemberDetails";
+            this.Load += new System.EventHandler(this.frmMemberDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,16 +196,18 @@
         #endregion
 
         private Button btnCancel;
-        private TextBox textBox2;
+        private TextBox txtEmailDetail;
         private Label txtEmail;
-        private TextBox textBox3;
+        private TextBox txtPasswordDetail;
         private Label txtPassword;
-        private TextBox textBox4;
+        private TextBox txtMemberNameDetail;
         private Label txtMemberName;
-        private TextBox textBox5;
+        private TextBox txtCityDetail;
         private Label txtCity;
-        private TextBox textBox6;
+        private TextBox txtCountryDetail;
         private Label txtCountry;
         private Button btnSave;
+        private TextBox txtMemberIDDetail;
+        private Label label1;
     }
 }

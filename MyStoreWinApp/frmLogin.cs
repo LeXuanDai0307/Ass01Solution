@@ -16,7 +16,8 @@ namespace MyStoreWinApp
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-
+            txtEmail.Text = String.Empty;
+            txtPassword.Text = String.Empty;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -27,7 +28,22 @@ namespace MyStoreWinApp
                 string email = txtEmail.Text;
                 string password = txtPassword.Text;
                 MemberObject member = memberRepository.Login(email, password);
-                MessageBox.Show("Login successfully.");
+                if (member != null)
+                {
+                    if (("admin").Equals(member.Email)) {
+                        Hide();
+                        frmMemberManagements frmManagements = new frmMemberManagements();
+                        if (frmManagements.ShowDialog() == DialogResult.OK)
+                        {
+                            Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login successfully: User.");
+                    }
+                }
+              
 
             }
             catch (Exception ex)

@@ -130,7 +130,6 @@ namespace Ass01Solution.DataAccess
             }
             return member;
         }
-
         public void Create(MemberObject newMember)
         {
             try
@@ -139,9 +138,8 @@ namespace Ass01Solution.DataAccess
                 string defaultPassword = "123456";
                 if (member == null)
                 {
-                    string SQLInsert = "INSERT Members VALUES(@MemberID, @MemberName, @Email, @Password, @City, @Country)";
+                    string SQLInsert = "INSERT Members VALUES(@MemberName, @Email, @Password, @City, @Country)";
                     var parameters = new List<SqlParameter>();
-                    parameters.Add(dataProvider.CreateParameter("@MemberID", 4, newMember.MemberID, DbType.Int32));
                     parameters.Add(dataProvider.CreateParameter("@MemberName", 50, newMember.MemberName, DbType.String));
                     parameters.Add(dataProvider.CreateParameter("@Email", 50, newMember.Email, DbType.String));
                     parameters.Add(dataProvider.CreateParameter("@Password", 50, defaultPassword, DbType.String));

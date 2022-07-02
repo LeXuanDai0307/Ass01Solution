@@ -135,14 +135,13 @@ namespace Ass01Solution.DataAccess
             try
             {
                 MemberObject member = GetMemberByID(newMember.MemberID);
-                string defaultPassword = "123456";
                 if (member == null)
                 {
                     string SQLInsert = "INSERT Members VALUES(@MemberName, @Email, @Password, @City, @Country)";
                     var parameters = new List<SqlParameter>();
                     parameters.Add(dataProvider.CreateParameter("@MemberName", 50, newMember.MemberName, DbType.String));
                     parameters.Add(dataProvider.CreateParameter("@Email", 50, newMember.Email, DbType.String));
-                    parameters.Add(dataProvider.CreateParameter("@Password", 50, defaultPassword, DbType.String));
+                    parameters.Add(dataProvider.CreateParameter("@Password", 50, newMember.Password, DbType.String));
                     parameters.Add(dataProvider.CreateParameter("@City", 50, newMember.City, DbType.String));
                     parameters.Add(dataProvider.CreateParameter("@Country", 50, newMember.Country, DbType.String));
                     dataProvider.ExcuteQuerry(SQLInsert, CommandType.Text, parameters.ToArray());

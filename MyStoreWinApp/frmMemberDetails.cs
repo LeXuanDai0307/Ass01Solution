@@ -18,7 +18,7 @@ namespace MyStoreWinApp
         private bool WithErrors()
         {
             if (txtEmailDetail.Text.Trim() == String.Empty)
-                return true; 
+                return true;
             if (txtPasswordDetail.Text.Trim() == String.Empty)
                 return true;
             return false;
@@ -29,21 +29,23 @@ namespace MyStoreWinApp
             if (WithErrors())
             {
                 MessageBox.Show("Email and Password do not allow empty.");
-            } else
+            }
+            else
             {
                 try
                 {
                     var member = new MemberObject
                     {
+                        MemberID = int.Parse(txtMemberIDDetail.Text),
                         MemberName = txtMemberNameDetail.Text,
                         Email = txtEmailDetail.Text,
                         Password = txtPasswordDetail.Text,
-                        City = txtCityDetail.Text,
-                        Country = txtCountryDetail.Text,
+                        City = cboCity.Text,
+                        Country = cboCountry.Text,
                     };
                     if ("UPDATE".Equals(Action))
                     {
-                      
+
                         MemberRepository.UpdateMember(member);
                         MessageBox.Show("Update a member successfully.");
                         this.DialogResult = DialogResult.OK;
@@ -62,7 +64,7 @@ namespace MyStoreWinApp
                     MessageBox.Show(ex.Message + " " + Action + " member.");
                 }
             }
-           
+
         }
 
         private void frmMemberDetails_Load(object sender, EventArgs e)
@@ -74,8 +76,8 @@ namespace MyStoreWinApp
                 txtMemberNameDetail.Text = Member.MemberName;
                 txtEmailDetail.Text = Member.Email;
                 txtPasswordDetail.Text = Member.Password;
-                txtCityDetail.Text = Member.City;
-                txtCountryDetail.Text = Member.Country;
+                cboCity.Text = Member.City;
+                cboCountry.Text = Member.Country;
 
                 if ("admin".Equals(Member.Email))
                 {
@@ -84,6 +86,10 @@ namespace MyStoreWinApp
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e) => Close();
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            Close();
+        }
     }
 }

@@ -35,13 +35,13 @@
             this.txtPassword = new System.Windows.Forms.Label();
             this.txtMemberNameDetail = new System.Windows.Forms.TextBox();
             this.txtMemberName = new System.Windows.Forms.Label();
-            this.txtCityDetail = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.Label();
-            this.txtCountryDetail = new System.Windows.Forms.TextBox();
             this.txtCountry = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtMemberIDDetail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cboCity = new System.Windows.Forms.ComboBox();
+            this.cboCountry = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -105,14 +105,6 @@
             this.txtMemberName.TabIndex = 7;
             this.txtMemberName.Text = "Member Name";
             // 
-            // txtCityDetail
-            // 
-            this.txtCityDetail.Location = new System.Drawing.Point(314, 188);
-            this.txtCityDetail.MaxLength = 50;
-            this.txtCityDetail.Name = "txtCityDetail";
-            this.txtCityDetail.Size = new System.Drawing.Size(229, 23);
-            this.txtCityDetail.TabIndex = 10;
-            // 
             // txtCity
             // 
             this.txtCity.AutoSize = true;
@@ -121,14 +113,6 @@
             this.txtCity.Size = new System.Drawing.Size(28, 15);
             this.txtCity.TabIndex = 9;
             this.txtCity.Text = "City";
-            // 
-            // txtCountryDetail
-            // 
-            this.txtCountryDetail.Location = new System.Drawing.Point(314, 230);
-            this.txtCountryDetail.MaxLength = 50;
-            this.txtCountryDetail.Name = "txtCountryDetail";
-            this.txtCountryDetail.Size = new System.Drawing.Size(229, 23);
-            this.txtCountryDetail.TabIndex = 12;
             // 
             // txtCountry
             // 
@@ -166,17 +150,53 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "MemberID";
             // 
+            // cboCity
+            // 
+            this.cboCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboCity.FormattingEnabled = true;
+            this.cboCity.Items.AddRange(new object[] {
+            "Ho Chi Minh",
+            "Ha Noi",
+            "Hai Phong",
+            "Da Nang",
+            "Vinh",
+            "Can Tho",
+            "Binh Phuoc"});
+            this.cboCity.Location = new System.Drawing.Point(314, 193);
+            this.cboCity.Name = "cboCity";
+            this.cboCity.Size = new System.Drawing.Size(229, 23);
+            this.cboCity.TabIndex = 16;
+            // 
+            // cboCountry
+            // 
+            this.cboCountry.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboCountry.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboCountry.FormattingEnabled = true;
+            this.cboCountry.Items.AddRange(new object[] {
+            "Viet Nam",
+            "Laos",
+            "Thailand",
+            "Malaysia",
+            "China",
+            "Japan",
+            "Korea"});
+            this.cboCountry.Location = new System.Drawing.Point(314, 230);
+            this.cboCountry.Name = "cboCountry";
+            this.cboCountry.Size = new System.Drawing.Size(229, 23);
+            this.cboCountry.TabIndex = 17;
+            // 
             // frmMemberDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cboCountry);
+            this.Controls.Add(this.cboCity);
             this.Controls.Add(this.txtMemberIDDetail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtCountryDetail);
             this.Controls.Add(this.txtCountry);
-            this.Controls.Add(this.txtCityDetail);
             this.Controls.Add(this.txtCity);
             this.Controls.Add(this.txtMemberNameDetail);
             this.Controls.Add(this.txtMemberName);
@@ -202,12 +222,12 @@
         private Label txtPassword;
         private TextBox txtMemberNameDetail;
         private Label txtMemberName;
-        private TextBox txtCityDetail;
         private Label txtCity;
-        private TextBox txtCountryDetail;
         private Label txtCountry;
         private Button btnSave;
         private TextBox txtMemberIDDetail;
         private Label label1;
+        private ComboBox cboCity;
+        private ComboBox cboCountry;
     }
 }

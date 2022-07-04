@@ -5,6 +5,8 @@ namespace MyStoreWinApp
 {
     public partial class frmMemberManagements : Form
     {
+        private readonly string _adminMail = "admin@fstore.com";
+
         IMemberRepository memberRepository = new MemberRepository();
         BindingSource source;
 
@@ -155,7 +157,7 @@ namespace MyStoreWinApp
             try
             {
                 var member = GetMemberObject();
-                if ("admin".Equals(member.Email))
+                if (_adminMail.Equals(member.Email))
                 {
                     MessageBox.Show("Delete failed! You are Admin.");
                 }

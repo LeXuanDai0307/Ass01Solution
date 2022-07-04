@@ -1,11 +1,12 @@
 ﻿using Ass01Solution.BusinessObject;
 using Ass01Solution.DataAccess.Repository;
+using Microsoft.Extensions.Configuration;
 
 namespace MyStoreWinApp
 {
     public partial class frmLogin : Form
     {
-
+        private readonly string _adminMail = "admin@fstore.com";
 
         public frmLogin()
         {
@@ -31,7 +32,7 @@ namespace MyStoreWinApp
                 if (member != null)
                 {
                     this.Hide();
-                    if (("admin").Equals(member.Email))
+                    if ((_adminMail).Equals(member.Email))
                     {
                         frmMemberManagements frmManagements = new frmMemberManagements();
                         DialogResult result = frmManagements.ShowDialog();
@@ -73,7 +74,17 @@ namespace MyStoreWinApp
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            string defaultEmail;
+            string defaultPassword;
+            IConfiguration config = new ConfigurationBuilder()
+                                        .SetBasePath(Directory.GetCurrentDirectory())
+                                        .AddJsonFile("appsettings.json", true, true)
+                                        .Build();
+            defaultEmail = config["UserSettings:Email"];
+            defaultPassword = config["UserSettings:Password"];
 
+            txtEmail.Text = defaultEmail;
+            txtPassword.Text = defaultPassword;
         }
 
         private void btnExit_Click(object sender, EventArgs e)

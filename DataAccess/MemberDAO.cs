@@ -50,7 +50,7 @@ namespace Ass01Solution.DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message + "Get Member List");
+                throw new Exception(ex.Message + "GetMemberList Failed.");
             }
             finally
             {
@@ -86,7 +86,7 @@ namespace Ass01Solution.DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message + "Get Member By ID");
+                throw new Exception(ex.Message + "Login Failed.");
             }
             finally
             {
@@ -121,7 +121,7 @@ namespace Ass01Solution.DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message + "Login failed");
+                throw new Exception(ex.Message + "GetMemberByID Failed");
             }
             finally
             {
@@ -153,7 +153,7 @@ namespace Ass01Solution.DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message + "Create new member");
+                throw new Exception(ex.Message + "CreateMember Failed.");
             }
             finally
             {
@@ -185,7 +185,7 @@ namespace Ass01Solution.DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message + "Update a member");
+                throw new Exception(ex.Message + "UpdateMember Failed.");
             }
             finally
             {
@@ -211,7 +211,7 @@ namespace Ass01Solution.DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message + "Remove a member");
+                throw new Exception(ex.Message + "RemoveMember Failed.");
             }
             finally
             {

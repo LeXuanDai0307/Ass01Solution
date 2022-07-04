@@ -6,6 +6,8 @@ namespace MyStoreWinApp
 {
     public partial class frmMemberDetails : Form
     {
+        private readonly string _adminMail = "admin@fstore.com";
+
         public frmMemberDetails()
         {
             InitializeComponent();
@@ -36,7 +38,6 @@ namespace MyStoreWinApp
                 {
                     var member = new MemberObject
                     {
-                        MemberID = int.Parse(txtMemberIDDetail.Text),
                         MemberName = txtMemberNameDetail.Text,
                         Email = txtEmailDetail.Text,
                         Password = txtPasswordDetail.Text,
@@ -45,7 +46,7 @@ namespace MyStoreWinApp
                     };
                     if ("UPDATE".Equals(Action))
                     {
-
+                        member.MemberID = int.Parse(txtMemberIDDetail.Text);
                         MemberRepository.UpdateMember(member);
                         MessageBox.Show("Update a member successfully.");
                         this.DialogResult = DialogResult.OK;
@@ -79,7 +80,7 @@ namespace MyStoreWinApp
                 cboCity.Text = Member.City;
                 cboCountry.Text = Member.Country;
 
-                if ("admin".Equals(Member.Email))
+                if (_adminMail.Equals(Member.Email))
                 {
                     txtEmailDetail.Enabled = false;
                 }
